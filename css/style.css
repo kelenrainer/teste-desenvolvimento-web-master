@@ -1,0 +1,235 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+header{
+  z-index: 1;
+  position: fixed;
+  background: #22242A;
+  padding: 20px;
+  width: calc(100% - 0%);
+  top: 0;
+  height: 30px;
+}
+
+.left_area h3{
+  color: #fff;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.left_area span{
+  color: #19B3D3;
+}
+
+a.nounderline:link{ 
+ text-decoration:none; 
+}
+
+.logout_btn{
+  padding: 5px;
+  background: #19B3D3;
+  text-decoration: none;
+  float: right;
+  margin-top: -30px;
+  margin-right: 40px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.5s;
+
+}
+
+.logout_btn:hover{
+  background: #0B87A6;
+}
+
+.sidebar{
+  z-index: 1;
+  top: 0;
+  background: #2f323a;
+  margin-top: 70px;
+  padding-top: 20px;
+  position: fixed;
+  left: 0;
+  width: 250px;
+  height: calc(100% - 9%);
+  transition: 0.5s;
+  transition-property: left;
+  overflow-y: auto;
+}
+
+.profile_info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar .profile_info .profile_image{
+  width: 150px;
+  height: 150px;
+  margin-left: 20px;
+}
+
+.sidebar .profile_info h4{
+  color: #fff;
+  margin-top: 0 10px;
+  margin-bottom: 30px;
+}
+
+/*menu sidebar*/
+.sidebar a{
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 60px;
+  text-decoration: none;
+  padding-left: 40px;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+.sidebar a:hover{
+ background-color: #ad0f0f8c;
+}
+
+.sidebar i{
+  padding-right: 10px;
+}
+
+label #sidebar_btn{
+  z-index: 1;
+  color: #fff;
+  position: fixed;
+  cursor: pointer;
+  left: 300px;
+  font-size: 20px;
+  margin: 5px 0;
+  transition: 0.5s;
+  transition-property: color;
+}
+
+#check:checked ~ .sidebar{
+  left: -185px;
+}
+
+#check:checked ~ .sidebar a span{
+  display: none;
+}
+
+#check:checked ~ .sidebar a{
+  font-size: 20px;
+  margin-left: 165px;
+  width: 100%;
+}
+/*fim*/
+
+.content{
+  width: (100% - 250px);
+  margin-top: 60px;
+  padding: 20px;
+  margin-left: 250px;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  transition: 0.5s;
+}
+
+.content h1{
+  font-size: 30px;
+  font-family: 'Chilanka', cursive;
+}
+.content p{
+  font-size: 20px;
+  font-family: 'Chilanka', cursive;
+}
+
+#check:checked ~ .content{
+  margin-left: 60px;
+}
+
+#check:checked ~ .sidebar .profile_info{
+  display: none;
+}
+
+.btn{ 
+  padding: 5px 150px;
+  display: flex;
+  border-radius: 30px;
+  border: 2px solid #ddd;
+  color: rgba(0, 0, 0, 0.719);
+  background-color: #ebdc0eb6;
+  font-size: 20px;
+}
+
+.form-control,
+textarea{
+  width: 500px;
+  padding: 10px;
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  color: #000;
+  background-color: rgba(221, 221, 221, 0.377);
+  font-size: 15px;
+}
+
+.form-inline{
+  width: 300px;
+  padding: 5px;
+  display: block;
+  font-size: 15px;
+}
+
+.content .table-striped{
+  background-color: #940ba6;
+  padding: 10px 5px ;
+}
+
+.list-group{
+  border-radius: 10px;
+  margin-left: -auto;
+}
+
+.list-group a{
+  width: 120px;
+  height: 25px;
+  text-align: center;
+  display: block;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  color: #fff;
+  background-color: #eb280efd;
+  font-size: 15px;
+}
+
+
+
+#tabela{
+  width: 500px;
+  border-bottom: 1px solid #000000; 
+  text-align: center;
+  font-family: "Calibri";
+  color: #000000;
+  vertical-align: middle;
+}
+
+th, td{
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.171);
+}
+
+tbody tr:hover{
+  background-color: rgb(240, 228, 228);
+}
+
+.btn:hover{
+  background-color: #e9e393;
+}

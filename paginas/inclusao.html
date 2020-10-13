@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+      <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+      <link rel="stylesheet" href="../css/style.css">
+      <link rel="stylesheet" href="../paginas/script.js">
+      <title>Teste Web Master RedFox</title>
+  </head>
+  <body>
+
+<!--header area menu-->
+    <input type="checkbox" id="check">
+    <header>
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_area">
+        <a href="../paginas/index.html" class="nounderline">
+          <h3>Pokémon <span>Go</span></h3>
+        </a>
+      </div>
+    </header>
+<!--fim header area menu-->
+    
+    <!--inicio sidebar-->
+    <div class="sidebar">
+      <div class="profile_info">
+        <a href="../paginas/index.html">
+        <img src="../img/pokemon.png" class="profile_image" alt=""></a>
+   
+      </div>
+      <a href="detalhe.html"><i class="far fa-file-alt"></i><span>Detalhe Pokémon</span></a>
+      <a href="inclusao.html"><i class="fas fa-archive"></i><span>Incluir Pokémon</span></a>
+    </div>
+    <!--fim sidebar end-->
+
+    <div class="content">
+      <div id="app"></div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+      <script>
+      new Vue({
+          el: '#app',
+          template: `
+            <div class="container">
+              <h1>Incluir Pokémon</h1>
+              <hr/>
+              <div class="form-todo form-group">
+                <p>
+                  <input placeholder="Nome do Pokémon" type="text" name="nome" class="form-control" v-model="name" />
+                </p>
+                
+                <p>
+                  <textarea placeholder="Incluir" name="message"  class="form-control" v-model="message"></textarea>
+                </p>
+                <hr>
+                <button v-on:click="addComment" type="submit" class="btn btn-primary">Inserir</button>
+              </div>
+            <p>
+              <div class="list-group">
+                <div class="list-group-item" v-for="(comment, index) in allComments">
+                  <span class="comment__nome">Nome: <strong>{{ comment.name }}</strong></span>
+                  <p>{{ comment.message }}</p>
+                  <div>
+                    <a href="#" title="Excluir" v-on:click.prevent="removeComment(index)">Excluir</a>
+                  </div>
+                </div>
+              </div>
+            
+            </div>
+          `,
+          data() {
+            return {
+              comments: [],
+              name: '',
+              message: '' 
+            }
+          },
+          methods: {
+            addComment() {
+              if (this.message.trim() === '') {
+                return;
+              }
+            
+              this.comments.push({
+                name: this.name,
+                message: this.message
+              });
+    
+              this.name = '';
+              this.message = '';
+            },
+            removeComment(index) {
+              this.comments.splice(index, 1);
+            }
+          },
+          computed: {
+            allComments() {
+              return this.comments.map(comment => ({
+                ...comment,
+                name: comment.name.trim() === '' ? 'Anônimo' : comment.name
+              }))
+            }
+          },
+          watch: {
+            comments(val) {
+              console.log('val', val)
+            }
+          }
+        })
+      </script>
+      
+    </div>
+
+  </body>
+</html>
